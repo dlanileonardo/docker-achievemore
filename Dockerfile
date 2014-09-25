@@ -41,7 +41,6 @@ RUN apt-get -y install \
   libmagickwand-dev \
   rmagic \
   inkscape \
-  libmysqld-dev \
   libmysqlclient-dev \
   libpq-dev
 
