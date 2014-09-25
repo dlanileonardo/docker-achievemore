@@ -8,7 +8,7 @@ FROM dockerfile/ubuntu
 MAINTAINER Odlanier Mendes <dlanileonardo@gmail.com>
 
 RUN apt-get update
-RUN apt-get -y install python-software-properties \
+RUN apt-get -y install python-software-properties
   wget \
   openssl \
   libreadline6 \
@@ -40,12 +40,7 @@ RUN apt-get -y install python-software-properties \
   rmagic \
   inkscape \
   libmysqld-dev \
-  libmysqlclient-dev && \
+  libmysqlclient-dev \
 
 RUN curl -L get.rvm.io | bash -s stable
-
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-CMD ["bash"]
-
-WORKDIR /data
