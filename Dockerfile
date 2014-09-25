@@ -8,7 +8,12 @@ FROM dockerfile/ubuntu
 MAINTAINER Odlanier Mendes <dlanileonardo@gmail.com>
 
 RUN apt-get update
-RUN apt-get -y install python-software-properties
+RUN apt-get -y install \
+  libgdbm-dev \
+  libncurses5-dev \
+  pkg-config \
+  libffi-dev \
+  python-software-properties \
   wget \
   openssl \
   libreadline6 \
@@ -19,9 +24,7 @@ RUN apt-get -y install python-software-properties
   zlib1g-dev \
   libssl-dev \
   libyaml-dev \
-  libsqlite3-dev \
   sqlite3 \
-  libxml2-dev \
   libxslt-dev \
   autoconf \
   libc6-dev \
@@ -30,7 +33,6 @@ RUN apt-get -y install python-software-properties
   libtool \
   bison \
   subversion \
-  zlib1g-dev \
   build-essential \
   libreadline-dev \
   libsqlite3-dev \
