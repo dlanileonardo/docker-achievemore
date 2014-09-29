@@ -1,11 +1,15 @@
 #
-# Ruby/RVM Dockerfile
+# Preparing Ruby/Rbenv Dockerfile
 #
 # https://github.com/dockerfile/ruby
 #
 # Pull base image.
 FROM dockerfile/ubuntu
 MAINTAINER Odlanier Mendes <dlanileonardo@gmail.com>
+
+ENV HOME /azk
+ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+ENV SHELL /bin/bash
 
 RUN apt-get update
 RUN apt-get -y install \
@@ -42,9 +46,12 @@ RUN apt-get -y install \
   rmagic \
   inkscape \
   libmysqlclient-dev \
-  libpq-dev
+  libpq-dev \
+  nodejs
 
-RUN curl -L get.rvm.io | bash -s stable
-RUN echo "source /usr/local/rvm/scripts/rvm" >> ~/.bashrc
-
-ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN git clone --quiet --depth 1 https://github.com/sstephenson/rbenv.git \
+  $HOME/.rbenv
+RUN git clone --quiet --depth 1 https://github.com/sstephenson/ruby-build.git \
+  $HOME/.rbenv/plugins/ruby-build
+RUN echo 'eval "$(rbenv init -)"' >> $HOME/.profile
+RUN echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
