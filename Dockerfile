@@ -4,7 +4,7 @@
 # https://github.com/dockerfile/ruby
 #
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM dockerfile/ubuntu:12.04
 MAINTAINER Odlanier Mendes <dlanileonardo@gmail.com>
 
 ENV HOME /azk
