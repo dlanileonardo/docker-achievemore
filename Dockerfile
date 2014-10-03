@@ -22,15 +22,13 @@ ADD root/.bashrc /root/.bashrc
 ADD root/.gitconfig /root/.gitconfig
 ADD root/.scripts /root/.scripts
 
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
-
 ENV HOME /azk
+WORKDIR /azk
 ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 ENV SHELL /bin/bash
+ADD root/.bashrc $HOME/.bashrc
+ADD root/.gitconfig $HOME/.gitconfig
+ADD root/.scripts $HOME/.scripts
 
 RUN apt-get update
 RUN apt-get -y install \
