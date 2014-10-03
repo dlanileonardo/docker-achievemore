@@ -47,7 +47,8 @@ RUN apt-get -y install \
   inkscape \
   libmysqlclient-dev \
   libpq-dev \
-  nodejs
+  nodejs \
+  inotify-tools
 
 RUN git clone --quiet --depth 1 https://github.com/sstephenson/rbenv.git \
   $HOME/.rbenv
