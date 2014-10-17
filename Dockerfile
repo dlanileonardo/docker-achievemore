@@ -12,6 +12,7 @@ ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 ENV SHELL /bin/bash
 
 RUN apt-get update
+RUN apt-get dist-upgrade
 RUN apt-get -y install \
   libgdbm-dev \
   libncurses5-dev \
