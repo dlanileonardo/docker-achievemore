@@ -4,7 +4,7 @@
 # https://github.com/dockerfile/ruby
 #
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM wmarinho/ubuntu:oracle-jdk-7
 MAINTAINER Odlanier Mendes <dlanileonardo@gmail.com>
 
 ENV HOME /azk
