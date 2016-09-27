@@ -51,9 +51,14 @@ RUN apt-get -y install \
   nodejs \
   inotify-tools
 
-RUN git clone --quiet --depth 1 https://github.com/sstephenson/rbenv.git \
-  $HOME/.rbenv
-RUN git clone --quiet --depth 1 https://github.com/sstephenson/ruby-build.git \
-  $HOME/.rbenv/plugins/ruby-build
-RUN echo 'eval "$(rbenv init -)"' >> $HOME/.profile
-RUN echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
+  RUN git clone --quiet --depth 1 https://github.com/sstephenson/rbenv.git \
+    $HOME/.rbenv
+  RUN git clone --quiet --depth 1 https://github.com/sstephenson/ruby-build.git \
+    $HOME/.rbenv/plugins/ruby-build
+  RUN echo 'eval "$(rbenv init -)"' >> $HOME/.profile
+  RUN echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
+
+  RUN git clone https://github.com/riywo/ndenv ~/.ndenv
+  RUN git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
+  RUN echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> ~/.bash_profile
+  RUN echo 'eval "$(ndenv init -)"' >> ~/.bash_profile
