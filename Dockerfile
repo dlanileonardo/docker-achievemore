@@ -60,5 +60,5 @@ RUN apt-get -y install \
 
   RUN git clone https://github.com/riywo/ndenv ~/.ndenv
   RUN git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
-  RUN echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> ~/.bash_profile
-  RUN echo 'eval "$(ndenv init -)"' >> ~/.bash_profile
+  RUN echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> ~/.bashrc
+  RUN echo 'eval "$(ndenv init -)"' >> ~/.bashrc
