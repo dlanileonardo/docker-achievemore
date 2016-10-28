@@ -55,8 +55,14 @@ RUN apt-get -y install \
     $HOME/.rbenv
   RUN git clone --quiet --depth 1 https://github.com/sstephenson/ruby-build.git \
     $HOME/.rbenv/plugins/ruby-build
-  RUN echo 'eval "$(rbenv init -)"' >> $HOME/.profile
-  RUN echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
+  RUN echo '\n\
+export RBENV_ROOT="${HOME}/.rbenv"\n\
+\n\
+if [ -d "${RBENV_ROOT}" ]; then\n\
+  export PATH="${RBENV_ROOT}/bin:${PATH}"\n\
+  eval "$(rbenv init -)"\n\
+fi\n\
+  ' >> $HOME/.bashrc
 
   RUN git clone https://github.com/riywo/ndenv ~/.ndenv
   RUN git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
